@@ -21,7 +21,7 @@ if(!require(RCurl)) install.packages("RCurl") # If missing package, install from
 
 Instead of downloading the dataset manually, right-click on the download option and copy the *Link Address*. You can plug this directly into the `getURL()` function from RCurl. 
 
-![Screenshot](Img.png)
+> ![Screenshot](Img.png)
 
 ```{r}
 ## Use RCurl to download the dataset from medicare.gov API 
@@ -35,8 +35,10 @@ url <- getURL("https://data.medicare.gov/api/views/c7us-v4mf/rows.csv?accessType
 Since the url object is the csv file as a string, we'll use `textConnection(url)` to read the results as a text file. Finally, we use the `read.csv()` function to read the connection into R.
 
 ```{r}
-# Read in the CSV  as a csv 
+## Read in the CSV as a csv 
 hosp <- read.csv(file = textConnection(url))
+
+# View the structure of the object
 str(hosp)
 ```
 
